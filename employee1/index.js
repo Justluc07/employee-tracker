@@ -114,6 +114,22 @@ async function loadMainPrompts() {
   }
 }
 
+async function findAllPossibleManagers() {
+  const employees = await db.findAllEmployees();
+
+  console.log("\n");
+  console.table(employees);
+
+  loadMainPrompts();
+}
+async function findAllEmployees() {
+  const employees = await db.findAllEmployees();
+
+  console.log("\n");
+  console.table(employees);
+
+  loadMainPrompts();
+}
 async function viewEmployees() {
   const employees = await db.findAllEmployees();
 
@@ -216,6 +232,7 @@ async function addEmployee() {
       message: "What is the employee's last name?"
     }
   ]);
+  loadMainPrompts();
 }
 
 
